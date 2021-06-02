@@ -1,0 +1,108 @@
+﻿@model Vezeeta.Models.Doctor
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4 class="alert alert-danger">Doctor : @Html.DisplayFor(model => model.FullName) </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Entity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialty.Specilty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialty.Specilty)
+        </dd>
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City.CityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.CityName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.AreaName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Area.AreaName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressDetails)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.branchName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDImage)
+        </dd>
+
+       
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

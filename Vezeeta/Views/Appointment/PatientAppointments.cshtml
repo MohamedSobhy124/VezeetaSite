@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Vezeeta.Models.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+<h2 class="text-center m-3">الحجوزات</h2>
+
+<table class="table text-center table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayName("اسم الدكتور")
+        </th>
+
+
+        <th>
+            @Html.DisplayName("اليوم")
+        </th>
+        <th>
+            @Html.DisplayName("الوقت")
+        </th>
+        <th>
+            @Html.DisplayName("الحالة")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor.FullName)
+            </td>
+
+
+            <td>
+                @item.Date.ToString("MMM") - @item.Date.ToString("d ") - @item.Date.ToString("yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time.TimeOfDay)
+            </td>
+            <td>
+                @if (item.Status == Vezeeta.Models.AppointmentStatus.Approved)
+                {
+                    <a href="#" style="padding: 15px 20px 15px 20px ; background-color:green ; color:black " class="badge " readonly>Approved</a>
+                    @*@Html.ActionLink("Approved", "", "", new { @class = "btn btn-success" })*@
+                }
+
+                else if (item.Status == Vezeeta.Models.AppointmentStatus.Pending)
+                {
+                    <a href="#" style="padding: 15px 20px 15px 20px ; background-color:orange ;color:black" class="badge " readonly>Pending</a>
+
+                    @*@Html.ActionLink("Pending", "", "", new { @class = "btn btn-warning" })*@
+
+                }
+                else
+                {
+                    <a href="#" style="padding:15px 20px 15px 20px; background-color:red ; color:black " class="badge" readonly>Denied</a>
+                    @*@Html.ActionLink("Denied", "", "", new { @class = "btn btn-danger" })*@
+
+
+                    @Html.ActionLink("احجز ميعاد جديد", "Details", "Doctors", null, new { @class = "btn btn-primary" })
+                }
+
+            </td>
+             </tr>  
+
+    }
+
+
+</table>

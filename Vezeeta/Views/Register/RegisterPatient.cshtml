@@ -1,0 +1,176 @@
+﻿@model Vezeeta.Models.Patient
+
+@{
+    ViewBag.Title = "RegisterPatient";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> سجل بياناتك و انضم الان - فيزيتا</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/images/logohead.jfif" />
+
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(226, 226, 226);
+        }
+
+        .card {
+            border-radius: 50px;
+        }
+
+        .card-header {
+            height: 50px;
+            background-color: rgb(57, 144, 214);
+        }
+
+        .card-title {
+            font-size: 20px;
+            color: white
+        }
+
+        .card-footer {
+            background-color: white;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .row {
+            flex: 1 0 200px;
+        }
+
+
+        .field-validation-error {
+            color: #ff0000;
+        }
+
+        .field-validation-valid {
+            display: none;
+        }
+
+        .input-validation-error {
+            border: 1px solid #ff0000 !important;
+            background-color: #ffeeee !important;
+        }
+
+        .validation-summary-errors {
+            font-weight: bold !important;
+            color: #ff0000 !important;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    @{
+        Html.RenderPartial("_NaveBar");
+    }<!-- End Header -->
+    <br /><br /><br /><br />
+    <div class="container  d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+            <div class="col-md-7 col-sm-11 col-10">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="card-title text-center mb-4">انضم الان</p>
+                    </div> <!-- end card head -->
+                    <br />
+                    <div class="card-body">
+                        @using (Html.BeginForm("RegisterPatient", "Register", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group mb-4 text-right d-none">
+                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2", style = "font-size: 15px; color: gray;" })
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", autofocus = "" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group mb-4 text-right d-none">
+                                @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label col-md-2", style = "font-size: 15px; color: gray;" })
+                                @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control", autofocus = "" } })
+                            </div>
+                            <div class="form-group d-none ">
+                                @Html.LabelFor(model => model.AdminID, "AdminID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownList("AdminID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group mb-4 text-right">
+                                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2", style = "font-size: 15px; color: gray;" })
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group mb-4 text-right d-none">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2", style = "font-size: 15px; color: gray;" })
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group mb-4 text-right">
+                                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.EnumDropDownListFor(model => model.Gender, htmlAttributes: new { @class = "nav-item dropdown w-100" })
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group mb-4 text-right">
+                                @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2", style = "font-size: 15px; color: gray;" })
+                                @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group  text-right">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2", style = "font-size: 15px; color: gray;" })
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="text-right" style="margin-bottom: 20px;">
+                                <span style="font-size: 12px; color: gray;">بقيامك بالتسجيل فانت توافق على <a href="#" style="text-decoration: underline;"> الشروط و القوانين</a></span>
+                            </div>
+                            <input type="submit" value="اشترك الان" class="btn btn-danger" style="margin-left: 30%; background-color: rgb(230, 4, 4); font-size: 15px; width: 50%;" />
+                        }
+
+                        <hr color="gray" width="70%" style="margin-left: 20%;" />
+                        <span style="margin-left: 35%;">
+                            <span style="font-size: 15px; color: gray;">مسجل بالفعل في فيزيتا ؟ <a href="/LogIn/Login/" style="text-decoration: underline;">دخول</a></span>
+                        </span>
+                    </div><!-- end card  body -->
+                </div><!-- end of card -->
+            </div><!-- end of col -->
+        </div><!-- end of row -->
+    </div> <!-- end container -->
+    <br />
+
+    <!-- ======= Footer ======= -->
+    @{
+        Html.RenderPartial("_FooterPView");
+    }<!-- End Footer -->
+    <!-- Main JS File -->
+    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/js/JQuery-3.3.1.min.js"></script>
+    <script src="~/Content/js/popper.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+</body>
+</html>
+
+

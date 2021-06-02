@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rating List</h2>
+
+<div class="row mb-3">
+    <div class="offset-4 col-sm-8 ">
+        <div class="form-inline pull-right">
+            <label class="text-uppercase">Search</label>
+            <input type="text" class="form-control ml-3 w-75" id="txtSearch" placeholder="Search By Doctor , Patient Or Tatal Rating" />
+        </div>
+    </div>
+</div>
+
+<div id="gridAppointment">
+
+</div>
+<script>
+    $(() => {
+        getUsers();
+        $('#txtSearch').on('keyup', () => {
+            getUsers();
+        });
+    });
+    function getUsers() {
+        $.ajax({
+            url: '@Url.Action("searchAppointment","Ratings")',
+            dataType: 'html',
+            method: 'GET',
+            data: { seachText: $('#txtSearch').val() },
+            success: function (res) {
+                $('#gridAppointment').html('').html(res);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+
+        });
+    }
+</script>
+

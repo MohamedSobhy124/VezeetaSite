@@ -1,0 +1,162 @@
+﻿@model IEnumerable<Vezeeta.Models.Doctor>
+
+
+<table class="table table-bordered table-responsive">
+    <tr class="alert-primary">
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDImage)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamineFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialty.Specilty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PromoCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaitingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City.CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.branchName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsuranceID)
+
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() != 0)
+    {
+        foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FullName)
+    </td>
+    @if (item.DoctorStatus == Vezeeta.Models.AppointmentStatus.Pending)
+    {
+        <td>
+
+            @Html.ActionLink("Approve", "Approve", "Doctor", new { id = item.DoctorID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Deny", "Deny", "Doctor", new { id = item.DoctorID }, new { @class = "btn btn-danger" })
+
+        </td>
+    }
+    else if (item.DoctorStatus == Vezeeta.Models.AppointmentStatus.Approved)
+    {
+
+
+        <td>
+            <a href="#" style="padding: 15px 20px 15px 20px ; background-color:green ; color:black;" class="badge " readonly>Approved</a>
+
+
+        </td>
+    }
+    else
+    {
+        <td>
+            <a href="#" style="padding: 15px 20px 15px 20px ; background-color:red ; color:black " class="badge " readonly>Denied</a>
+
+
+        </td>
+    }
+    <td>
+        <img src="@item.IDImage" style="width:100px;height:100px;" alt="Avatar" class="" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BirthDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ExamineFee)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Specialty.Specilty)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PromoCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WaitingTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Area.AreaName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.City.CityName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AddressDetails)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Entity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.branchName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Insurance.CompanyName)
+    </td>
+    <td>
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.DoctorID }, new { @class = "btn btn-primary mb-1" })*@
+        @*@Html.ActionLink("Details", "Details", new { id = item.DoctorID }, new { @class = "btn btn-info mb-1" })*@
+        @Html.ActionLink("Delete", "Delete", new { id = item.DoctorID }, new { @class = "btn btn-danger mb-1" })
+    </td>
+</tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="16" class="text-center" width="100%">No Record Found !</td>
+        </tr>
+    }
+
+</table>

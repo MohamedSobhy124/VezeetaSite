@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "RegisterDoctor";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signup for a new account | Vezeeta</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/images/logohead.jfif" />
+
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('https://cdn.vezeeta.com/account-mgmt-web/1-22-7/assets/background.png');
+        }
+
+        .h5 {
+            color: rgb(105, 105, 105);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center ">
+            <a href="/HomePage/HomePage/" class="logo me-auto"><img src="~/Content/images/logo.png" alt=""></a>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li class="dropdown" style="width:100px;">
+                        <a href="#"><span><img src="~/Content/country-flags-16px/16/eg_16.png" /> مصر</span></a>
+                        <ul style="padding-right: 200px">
+                            <li><a href="#">السعودية<img src="~/Content/country-flags-16px/16/sa_16.png" /></a></li>
+                            <li><a href="#">مصر<img src="~/Content/country-flags-16px/16/eg_16.png" /></a></li>
+                            <li><a href="#">الاردن<img src="~/Content/country-flags-16px/16/jo_16.png" /></a></li>
+                            <li><a href="#">لبنان<img src="~/Content/country-flags-16px/16/lb_16.png" /></a></li>
+                            <li><a href="#">نيجيريا<img src="~/Content/country-flags-16px/16/ng_16.png" /></a></li>
+                            <li><a href="#">كينيا<img src="~/Content/country-flags-16px/16/ke_16.png" /></a></li>
+                            <li><a href="#">النسخه العالمية<img src="~/Content/country-flags-16px/16/global.jpg" /></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header><!-- End Header -->
+
+    <br /><br /><br /><br />
+
+
+                      <div class="container" style="border-radius: 10px; width: 80%;height: 570px;  background-color: white; ">
+                          <div style="background-color: rgb(13, 162, 221); height: 5px;"></div>
+
+                          <div class="row mt-4">
+                              <div class="col-md-12  col-sm-12 col-12">
+                                  <h5 class="pl-md-5">Create a new account</h5>
+                              </div>
+                          </div><!-- end of first row -->
+
+                          <div class="row">
+                              <div class="col-md-12  col-sm-12 col-12">
+                                  <p class="pl-md-5" style="font-size: 16px; color: gray;margin-top: 20px;margin-bottom: 40px;">You can start with Facebook or Google to retrieve some of your info or continue with email to enter them manually</p>
+                              </div>
+                          </div><!-- end of second row -->
+
+                          <div class="row  justify-content-center align-self-center">
+                              <div class="col-md-3  col-sm-12 col-12">
+
+                                  <div class="input-group mt-3 ml-sm-5">
+                                      <a href="#" class="fb btn btn-block" style="background-color: #3B5998; color: white; width: 400px;">
+                                          <i class="fa fa-facebook fa-fw"></i> Connect  with Facebook
+                                      </a>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-3  col-sm-12 col-12">
+
+                                  <div class="input-group mt-3 ml-sm-5">
+                                      <a href="#" class="fb btn btn-block" style="background-color:rgb(201, 60, 35); color: white; width: 400px;">
+                                          <i class="fa fa-google fa-fw"></i>  Connect  with Google
+                                      </a>
+                                  </div>
+                              </div>
+                          </div><!-- end of thrid row -->
+
+                          <div style="display: flex; justify-content: center; margin-top: 50px;">
+                              <p style=" font-size: 20px; color: rgb(184, 181, 181); text-align: center; border: 2px solid rgb(184, 181, 181); border-radius: 50%; width: 40px; height: 40px;">or</p>
+                          </div>
+
+                          <a href="/DoctorSignUp/doctorSignup/">
+                              <div class="row justify-content-center align-self-center">
+                                  <button type="submit" class="btn btn btn-light  btn-block" style="margin-top: 20px;  width: 200px; background-color: rgb(240, 234, 234);">Continue With email</button>
+                              </div>
+                          </a>
+
+                          <br /><br />
+
+                              <div style="text-align: center; margin-bottom: 40px;">
+                                  <span>
+                                      <a style="font-size: 13px; color: gray;">Already have an account?</a>
+                                  </span>
+                                  <a href="/LogInDoctor/Logindoctor/" style="text-decoration: underline; font-size: 13px;"> Login</a>
+                              </div><!-- end of forth row -->
+                      </div><!-- end of container -->
+
+    <br />
+
+    <!-- Main JS File -->
+    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/js/JQuery-3.3.1.min.js"></script>
+    <script src="~/Content/js/popper.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+
+</body>
+</html>
+

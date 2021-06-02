@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNet.Identity
+
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <a href="/Doctors/homePage/" class="logo me-auto"><img src="~/Content/images/logo.png" alt=""></a>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOut", "LogIn", FormMethod.Post, new { id = "LogOutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>Hello,@User.Identity.Name</a>
+                            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="javascript:document.getElementById('LogOutForm').submit()" style="color:blue;">Logout</a>
+                            </div>
+
+                        </li>
+
+
+                    }
+                }
+                else
+                {
+
+                    <li>@Html.ActionLink("انضم الان", "Register", "Register", null, new { @class = "nav-link scrollto", style = "border: 2px solid ;text-align: center;padding: 5px;" })</li>
+                    <li>@Html.ActionLink("دخول", "Login", "LogIn", null, new { @class = "nav-link scrollto" })</li>
+                    <li>@Html.ActionLink("| فيزيتا للاطباء |", "RegisterDoctor", "AllSignUpDoctor", null, new { @class = "nav-link scrollto" })</li>
+                }
+                <li>@Html.ActionLink("اتصل بنا |", "ContactUs", "ContactUs", null, new { @class = "nav-link scrollto" })</li>
+                <li class="dropdown" style="width:100px;">
+                    <a href="#"><span><img src="~/Content/country-flags-16px/16/eg_16.png" /> مصر</span></a>
+                </li>
+            </ul>
+            @if (User.IsInRole("Patient"))
+            {
+                @Html.ActionLink("المواعيد", "PatientAppointments", "Appointment", null, new { @class = "", style = "" })
+            }
+            else if (User.IsInRole("Doctor"))
+            {
+                @Html.ActionLink("المواعيد", "doctorAppointments", "doctors", null, new { @class = "", style = "" })
+
+            }
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header>

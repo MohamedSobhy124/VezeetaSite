@@ -1,0 +1,201 @@
+﻿@model Vezeeta.Models.Contactus
+@{
+    ViewBag.Title = "اتصل بنا";
+    //Layout = null;
+}
+
+
+<style>
+    body {
+        background-color: #EEEDED;
+        border-radius: 5%;
+    }
+
+    h5 {
+        color: rgb(105, 105, 105);
+        margin-top: 40px;
+    }
+
+    hr.vert {
+        border: none;
+        border-left: 1px solid rgb(202, 200, 200);
+        height: 90vh;
+        width: 1px;
+    }
+
+    .mydiv {
+        width: 100%;
+        height: 100%;
+        background-image: url('/Content/images/cover22.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: gray;
+    }
+
+    .header {
+        color: #36A0FF;
+        font-size: 27px;
+        margin: 50px;
+    }
+</style>
+
+
+
+<br />
+
+<div class="container" style=" display: flex;justify-content: space-around;border-radius: 10px; width: 80%;  height: auto; background-color: white;">
+    <div class="row" style=" flex-direction: row-reverse;">
+        <div class="col-md-7  col-sm-12 col-12 mb-3">
+            <div class="row mt-3 text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 25px; color: rgb(9, 123, 168);" class="pl-md-5">اتصل بنا</p>
+                </div>
+            </div><!-- end of first row -->
+
+            <div class="row text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p class="pl-md-5" style="font-size: 13px; color: gray;" class="pl-md-5">.نحن سعداء لتلقي استفساراتكم واقتراحاتكم</p>
+                </div>
+            </div><!-- end of second row -->
+
+            @using (Html.BeginForm("ContactUs", "ContactUs", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <label style="font-size: 15px; color: gray;"><span style="color: red;">*</span> الاسم  </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control txt", autofocus = "" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label style="font-size: 15px; color: gray;"><span style="color: red;">*</span> رقم الموبايل  </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control txt" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label style="font-size: 15px; color: gray;"><span style="color: red;">*</span> البريد الالكتروني   </label>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control txt" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label style="font-size: 15px; color: gray;"><span style="color: red;">*</span>تعليقات</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control txt", style = " rows=10, columns=100" })
+                        @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div style="display:flex; justify-content:left">*@
+                <button type="submit" class="btn btn-default btn-danger btn-block" style="margin-top: 20px; margin-left: 40%; width: 100px;">ارسال</button>
+                @*<button type="reset" class="btn btn-default btn-danger btn-block" style="margin-top: 20px; margin-left: 40%; width: 100px;">Reset</button>*@
+                @*</div>*@
+            }
+            <p class="txtsend" style="color:green; font-weight:bold;margin-top:10px;font-size:20px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"></p>
+
+
+        </div><!-- end of first  col -->
+
+        <div class="d-md-block col-md-1 d-sm-block col-sm-1 d-none">
+            <hr class="vert" />
+        </div>
+
+
+        <div class="col-md-4  col-sm-12 col-12 mb-3 ">
+            <div class="row mt-3 text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 25px; color: rgb(9, 123, 168);"> اتصل بنا</p>
+                </div>
+            </div>
+
+            <div class="row text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 15px; color: gray">١٦٦٧٦ سعر مكالمة عادية</p>
+                </div>
+            </div>
+
+            <div class="row text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 15px; color: gray"> : من خارج مصر اتصل ب</p>
+                    <p style="font-size: 15px; color: gray">+2 02 259 83 999</p>
+                </div>
+            </div>
+
+            <div class="row mt-3 text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 25px; color: rgb(9, 123, 168);">العنوان</p>
+                </div>
+            </div>
+
+            <div class="row text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 13px; color: gray">١٢٤ شارع عثمان بن عفان خلف الكليه الحربيه - مصر الجديدة</p>
+                </div>
+            </div>
+
+            <div class="row mt-3 text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 25px; color: rgb(9, 123, 168);">راسلنا على</p>
+                </div>
+            </div>
+
+            <div class="row text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <a href="#" style="font-size: 13px; color: gray">customercare@vezeeta.com</a>
+                </div>
+            </div>
+
+            <div class="row mt-3 text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <p style="font-size: 25px; color: rgb(9, 123, 168);">تابعنا على</p>
+                </div>
+            </div>
+
+            <div class="row text-right">
+                <div class="col-md-12  col-sm-12 col-12">
+                    <a href="#" style="font-size: 13px; color: gray"><span class="mr-3 fa fa-facebook-f fa-2x text-primary"></span></a>
+                    <a href="#" style="font-size: 13px; color: gray"><span class="mr-3 fa fa-instagram fa-2x text-primary"></span></a>
+                    <a href="#" style="font-size: 13px; color: gray"><span class="fa fa-twitter fa-2x text-primary"></span></a>
+                </div>
+            </div>
+        </div><!-- end of second col -->
+
+    </div><!-- end row -->
+</div> <!-- end container -->
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                $(".txtsend").append("@ViewBag.Message");
+                $(".txt").val("")
+            };
+    </script>
+}
+
+<br />
+<script src="~/Content/js/main.js"></script>
+<script src="~/Content/js/JQuery-3.3.1.min.js"></script>
+<script src="~/Content/js/popper.js"></script>
+<script src="~/Content/js/bootstrap.js"></script>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+</body>
+</html>
+

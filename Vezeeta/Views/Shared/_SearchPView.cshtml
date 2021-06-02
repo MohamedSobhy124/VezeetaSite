@@ -1,0 +1,62 @@
+﻿
+
+
+
+<div style="padding:8px ; ">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center">
+            <form action="/doctors/search2" method="get">
+                <ul class="nav justify-content-center bg-light ">
+                    <div style="margin-top: 12px;">
+
+                        <button type="submit" class="btn btn-danger" style="margin-right:10px">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                        @*<input type="text" name="docname" placeholder="دكتور-تخصص-منطقه-محافظه" style="border-bottom:none;border-left:none;border-right:none;border-top:none" />*@
+                    </div>
+                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown ">
+                        <div style="margin-top: 12px;">
+                            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">  اختار   التأمين <i class="fa fa-umbrella" aria-hidden="true"></i> </a>
+                            @Html.DropDownList("InsuranceID", null, " ", htmlAttributes: new { @class = "dropdown-item " })
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div style="margin-top: 12px;">
+                            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">اختار   المنطقه<i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            <select id="st" class="dropdown-item" name="AreaID">
+                            </select>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div style="margin-top: 12px;">
+                            <a href="#" role="button" aria-haspopup="true" aria-expanded="false"> اختار المحافظه <i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            @Html.DropDownList("CityID", null, " ", htmlAttributes: new { id = "ContID", @class = "dropdown-item" })
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div style="margin-top: 12px;">
+                            <a href="#" role="button" aria-haspopup="true" aria-expanded="false">اختار التخصص<i class="fa fa-stethoscope" aria-hidden="true"></i></a>
+                            @Html.DropDownList("SpeciltyID", null, " ", htmlAttributes: new { @class = "dropdown-item", id = "spec" })
+
+                        </div>
+                    </li>
+                    </li>
+                </ul>
+            </form>
+
+        </ul>
+    </nav>
+</div>
+<script>
+    $(function () {
+        $("#ContID").change(function () {
+            $.get("/AllSignUpDoctor/GetStateById", { CityID: $("#ContID").val() }, function (data) {
+                $("#st").empty();
+                $.each(data, function (index, row) {
+                    $("#st").append("<option value='" + row.AreaID + "'>" + row.AreaName + "</option>")
+                });
+            })
+        });
+    });
+</script>

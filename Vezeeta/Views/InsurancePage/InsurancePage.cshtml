@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Vezeeta.Models.Insurance>
+@{
+    ViewBag.Title = "اختر الدكتور الانسب لك حسب التامين";
+    //Layout = null;
+}
+
+
+<style>
+    .mydiv {
+        width: 100%;
+        height: 100%;
+        background-image: url('/Content/images/cover22.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: gray;
+    }
+
+    .header {
+        color: #36A0FF;
+        font-size: 27px;
+        margin: 50px;
+    }
+    #himg {
+        width: 50px;
+        height: 50px;
+        border: 1px solid rgb(175, 172, 172);
+        border-radius: 50%;
+        margin-left: 10px;
+    }
+</style>
+
+
+
+<section class="container">
+    <div class="search-container ">
+        <form action="/doctors/search" method="get">
+            <div class="input-group mt-2">
+                <input type="text" class="form-control" placeholder=" ابحث عن دكتور بالتامين " name="docname" style="text-align: right;margin-left:10px;">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+
+            </div>
+        </form>
+        <br>
+        <section class="row" style="background-color:white;direction: rtl;font-size: 20px;">
+            @foreach (var item in Model)
+            {
+
+                <section class="Search">
+                    <p>
+
+                        <form action="/doctors/search6" method="get">
+
+                            <li><img id="himg" src="~/Content/Images/slide-1.jpg" /><a href="/doctors/search6?InsuranceID=@item.InsuranceID">@item.CompanyName</a></li>
+                        </form>
+                    </p>
+                </section>
+
+            }
+
+        </section>
+</section>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchtxt = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchtxt)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+
+        });
+
+    });
+
+
+
+</script>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Vezeeta.Models.Rating>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.doctor.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patient.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntityRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssistantRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalRating)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() != 0)
+    {
+        foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.doctor.FullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.patient.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EntityRating)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssistantRating)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalRating)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { did = item.DoctorID, pid = item.PatientID }, new { @class = "btn btn-primary mb-1" })
+        @Html.ActionLink("Details", "Details", new { did = item.DoctorID, pid = item.PatientID }, new { @class = "btn btn-info mb-1" })
+        @Html.ActionLink("Delete", "Delete", new { did = item.DoctorID, pid = item.PatientID }, new { @class = "btn btn-danger mb-1" })
+    </td>
+</tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="8" class="text-center" width="100%">No Record Found !</td>
+        </tr>
+    }
+</table>

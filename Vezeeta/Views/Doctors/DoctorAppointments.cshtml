@@ -1,0 +1,107 @@
+﻿@model Vezeeta.ViewModel.DoctorDetailViewModel
+@{
+    ViewBag.Title = "Doctor Appointments";
+}
+<div class="row">
+    <div class="col-md-12 text-center  ">
+        <div class="x_panel ">
+            <div class="x_title">
+                <h1 class="text-center w-50   m-auto " style="background-color:#d8d8d8 ;color:#414141">المواعيد </h1>
+                <ul class="nav navbar-right panel_toolbox">
+                 
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class=" text-center">
+                    <div class="profile_img">
+                        <div id="crop-avatar">
+                            <!-- Current avatar -->
+                            <img class="img-responsive avatar-view rounded-circle m-3" style="width:100px;height:100px" src="@Model.Doctor.IDImage" alt="Avatar" title="Change the avatar">
+                        </div>
+                    </div>
+                    <h3 class="m-2">@Model.Doctor.FName</h3>
+                    <!-- start skills -->
+                   
+                    @Html.ActionLink("Today's Appointments", "TodayAppointments",null,new { @class = "btn btn-info" })
+                    <!-- end of skills -->
+                </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12 m-auto">
+                        <!-- start patient today -->
+                        <table id="patients" class="data table table-striped table-responsive no-margin">
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Patient Phone</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Response</th>
+                                    <th>Attendence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Appointments)
+                                {
+                                <tr>
+                                    <td>@item.Patient.Name</td>
+                                    <td>@item.Patient.Phone</td>
+                                    <td>@item.Date.ToString("MMM")-@item.Date.ToString("d ")-@item.Date.ToString("yyyy")</td>
+                                    <td>@item.Time.ToString("HH:mm")</td>
+                                    @if (item.Status == Vezeeta.Models.AppointmentStatus.Pending)
+                                    {
+                                        <td>
+
+                                            @Html.ActionLink("Approve", "Approve", "Doctors", new { id = item.AppointmentID }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Deny", "Deny", "Doctors", new { id = item.AppointmentID }, new { @class = "btn btn-danger" })
+
+                                        </td>
+                                    }
+                                    else if (item.Status == Vezeeta.Models.AppointmentStatus.Approved)
+                                    {
+                                        <td>
+                                            <a href="#" style="padding: 15px 20px 15px 20px ; background-color:green ; color:black " class="badge " readonly>Approved</a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a href="#" style="padding: 15px 20px 15px 20px ; background-color:red ; color:black " class="badge " readonly>Denied</a>
+                                        </td>
+                                    }
+
+
+                                    @if (item.IsAttend == Vezeeta.Models.AppointmentStatus.Pending)
+
+                                    {
+                                        <td>
+
+                                            @Html.ActionLink("Attended", "Approve2", "Doctors", new { id = item.AppointmentID }, new { @class = "btn btn-success" })
+                                            @Html.ActionLink("Not Attended", "Deny2", "Doctors", new { id = item.AppointmentID }, new { @class = "btn btn-danger" })
+
+                                        </td>
+                                    }
+                                    else if (item.IsAttend == Vezeeta.Models.AppointmentStatus.Approved)
+
+                                    {
+                                        <td>
+                                            <a href="#" style="padding: 15px 20px 15px 20px ; background-color:green ; color:black " class="badge " readonly>Atteneded</a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a href="#" style="padding: 15px 20px 15px 20px ; background-color:red ; color:black " class="badge " readonly>Not Atteneded</a>
+                                        </td>
+                                    }
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <!-- end patient today -->
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+}

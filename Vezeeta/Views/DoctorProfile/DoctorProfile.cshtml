@@ -1,0 +1,312 @@
+﻿@model Vezeeta.ViewModel.ViewModel1
+@{
+    ViewBag.Title = "DoctorProfile";
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>الاطباء </title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <!-- My Styling -->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/CSS/styleSh.css" rel="stylesheet">
+    <link rel="icon" href="~/Content/images/logohead.jfif" />
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".datapicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                showButtonPanel: true,
+                minDate: new Date()
+                
+            });
+        });
+       
+    </script>
+    
+    <style>
+
+        #himg {
+            
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgb(175, 172, 172);
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ======= Header ======= -->
+    @{
+        Html.RenderPartial("_NaveBar");
+    }
+    <!-- End Header -->
+
+    <div id="searchPart" class="container" style="margin-top:60px;">
+        <div class="row">
+            <div class="col-6">
+                <img src="~/Content/Images/Capture2.PNG" width="100%" height="100%" />
+            </div><!-- image-->
+            <div class="col-6" style="text-align: right;background-color:#EEEDED;">
+                <span>
+                    <p class="h4" style="color: gray;font-family: sans-serif;margin-top:11px;"><b> احجز مع أفضل دكتور في مصر حسب التخصص </b></p>
+                    <p style="color: gray;">أحجز أونلاين أو كلم <i class="fa fa-phone text-danger" aria-hidden="true"></i> 16676 </p>
+                    <p style="color: gray;">١٥٠٠٠ دكتور -٩٠٠٠ استاذ واستشاري - اكثر من ٤٠ تخصص</p>
+                </span>
+            </div><!-- text-->
+        </div> <!--end div row-->
+    </div> <!-- end container-->
+    <!--pagination-->
+    <br />
+    <div class="container main-container">
+        <div class="row justify-content-around">
+            <div class="right-section col-12 col-lg-6">
+                <div class="row doc-info">
+                    <div class="col-3 offset-1 .doc-img-container">
+                        @if (@Model.Doctor.IDImage.Length > 0)
+                        {
+                            <img src=@Model.Doctor.IDImage class="doc-img" />
+
+                        }
+                        else
+                        {
+                            <img src="~/Content/Images/icons8-camera-24.png" class="doc-img" />
+                        }
+                    </div>
+                    <div class=" doc-details col-8 ">
+                        <span class="doc-name">
+                            <h4 style="margin: 0px;">
+                                دكتور
+                                <span>@Model.Doctor.FullName</span>
+                            </h4>
+                        </span>
+                        <p>
+                            <span class="doc-spec">
+                                @Model.Doctor.Title @ViewBag.speciality
+                            </span>
+                        </p>
+
+                        <div class="tot-doc-rate">
+                            <span class="stars">
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="star fa fa-star"></span>
+                                <span class="tot-rate-num">التقييم العام من ٥٢٩ زاروا الدكتور</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 doc-serv">
+                    <div style="margin-bottom: 12px;">
+                        <span class="fa fa-stethoscope text-primary" style="font-size: 20px; "></span>
+                        <span class="head"> خدمات الدكتور :</span>
+                    </div>
+                    <div style="padding: 0px 35px 0px 0px;">
+                        <span class="service">خصم علي الكشف</span>
+
+                    </div>
+                </div>
+                <div class="patient-eval">
+                    <div>
+                        <span class=" fa fa-star-half  text-primary" style="font-size: 20px;"></span>
+                        <span class="head"> تقييم المرضي :</span>
+                    </div>
+                    <div class="col-12 inner-pat-eval">
+
+                        <div class="stars">
+                            <span class="star fa fa-star"></span>
+                            <span class="star fa fa-star"></span>
+                            <span class="star fa fa-star"></span>
+                            <span class="star fa fa-star"></span>
+                            <span class="star fa fa-star"></span>
+                        </div>
+                        <div class="tot-eval-head">التقييم العام</div>
+                        <div style="text-align: center;"> من ٤٤ زاروا الدكتور</div>
+
+                        <span class="row text-center" style="margin-top:1rem">
+                            <span class="col-4">
+                                <span class="stars">
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+
+                                </span>
+                                <br>
+                                <span class="sub-rate-title">تقييم المساعد</span>
+
+                            </span>
+                            <span class="col-4">
+                                <span class="stars">
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+                                    <span class="star-min fa fa-star "></span>
+
+                                </span>
+                                <br>
+
+                                <span class="sub-rate-title"> تقييم العيادة</span>
+
+                            </span>
+                            <span class="col-4">
+                                <span class="blue-box">
+                                    <span class="fbUVSu">3.8</span>/5
+                                </span>
+                                <span class="sub-rate-title">تقييم الدكتور</span>
+                            </span>
+
+                        </span>
+                    </div>
+                    <div class="devider">
+
+                    </div>
+
+                    <div class="col-12 review-container">
+
+                        <span class="stars">
+                            <span class="star-min fa fa-star"></span>
+                            <span class="star-min fa fa-star"></span>
+                            <span class="star-min fa fa-star"></span>
+                            <span class="star-min fa fa-star"></span>
+                            <span class="star-min fa fa-star"></span>
+                        </span>
+                        <div class="review-header ">
+                            التقييم العام
+                            <span class="text-center">
+                                <span><span class="blue-box"> 5</span></span>
+                                <span class="sub-rate-title" style="text-align: center;">تقييم الدكتور</span>
+                            </span>
+                        </div>
+                        <div class="comment">"دكتور شاطر"</div>
+                        <div class="kHFyFI">مروة م</div>
+                        <div class="dIODos">الثلاثاء، ١٦ فبراير ٢٠٢١ ٠٤:١٤ م</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 reserv-detail-container">
+                <div class="col-12 reserv-detail-title">
+                    معلومات الحجز
+                </div>
+                <div class="serv-container " style="text-align:center;">
+                    <span style="line-height: 20px;padding-bottom: 5px;">احجـــز </span>
+                    <span style="    font-size: 15px;color: rgb(7, 127, 205);"> كشف طبي </span>
+                </div>
+                <div class="col-12 price-and-time">
+
+                    <div class="col-6  item">
+                        <span><a><i class="fa fa-clock"></i></a> </span>
+                        <p>الكشف @Model.Doctor.ExamineFee جنيه</p>
+                    </div>
+                    <div class="col-6 item">
+                        <span><a><i class="fa fa-money-bill-wave-alt"></i></a> </span>
+                        <p>مدة الانتظار : @Model.Doctor.WaitingTime دقيقة</p>
+
+
+                    </div>
+                </div>
+
+                <div class="12 clinic-location">
+                    <span class="fa fa-map-marker-alt location-icon"></span>
+                    <div class="address-text">
+                        <span style="font-size: 17px;">  @Model.Doctor.AddressDetails , @ViewBag.area : @ViewBag.city</span>
+                        <span style="   font-size: 17px; margin-top: 5px;font-weight: 600;">احجز الان وسيتم ارسال تفاصيل العنوان بالكامل ورقم العيادة</span>
+                    </div>
+                </div>
+
+                <div class="col-12 choose-appointment">
+                    اخـتــــــــار ميعاد الــحــجــز
+                </div>
+
+                <div class="schedule-wrapper">
+                    <div class=" days-column-container ">
+                        <div class="book flex-column justify-content-between">
+                            @using (Html.BeginForm("DoctorProfile", "DoctorProfile", FormMethod.Post))
+                            {
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Appointment.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Appointment.Date, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control datapicker" } })
+                                        @Html.ValidationMessageFor(model => model.Appointment.Date, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Appointment.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Appointment.Time, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Appointment.Time, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                //if (!Model.Appointment.IsRepeated)
+                                //{
+                                <div class="text-center m-2">
+
+                                    <input type="submit" value="احجــــز" class="btn btn-danger " />
+                                </div>
+                                @* } *@
+                                @*else
+            {
+                <div class="text-center m-2">
+                    <a href="#" style="padding: 15px 20px 15px 20px ; background-color:red ; color:black " class="badge " readonly>You have a prevoius appointment at @Model.Doctor.FullName</a>
+                    <input type="submit" value="احجــــز تانى" class="btn btn-danger " />
+
+                </div>
+            }*@
+                            }
+                        </div>
+                        <div class="reserve-and-pay">
+                            <span class="fa fa-calendar  calender-icon" style="margin-left:14px ;"></span>
+                            <div class="reserve-and-pay-text">
+                                <span style="line-height: 22px;font-weight: 700;font-size: 20px;">احجز أونلاين، ادفع في العيادة!</span>
+                                <span style="line-height: 22px;font-size: 15px;"> الدكتور يشترط الحجز المسبق!!</span>
+                            </div>
+                        </div> <!-- Left section  end-->
+                    </div>
+                </div>
+            </div>
+            <!-- ======= Footer ======= -->
+            @{
+                Html.RenderPartial("_FooterPView");
+            }
+            <!-- End Footer -->
+            <!-- Main JS File -->
+            <script src="~/Content/js/main.js"></script>
+            @*<script src="~/Content/jss/JQuery-3.3.1.min.js"></script>*@
+            <script src="~/Content/jss/popper.js"></script>
+            <script src="~/Content/jss/bootstrap.js"></script>
+            @*<script>
+                $(function () {
+                    $("#datepicker").datepicker({ minDate: -20, maxDate: "+1M +10D" });
+                });
+            </script>*@
+</body>
+
+</html>
+

@@ -1,0 +1,168 @@
+﻿@model Vezeeta.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div >
+    <h4>Doctor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+
+        </dt>
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDImage)
+        </dt>
+
+        <dd class="alert-light">
+            @*@Html.DisplayFor(model => model.IDImage)*@
+
+            <img src="@Model.IDImage" style="width:100px;height:100px;" alt="Avatar" class="" />
+
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorPatients)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PassWord)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.PassWord)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialty.Specilty)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Specialty.Specilty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City.CityName)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.City.CityName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Area.AreaName)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Area.AreaName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressDetails)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.AddressDetails)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Entity)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Entity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.branchName)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.branchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaitingTime)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.WaitingTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExamineFee)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.ExamineFee)
+        </dd>
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Image)*@
+            <img src="@Model.Image" style="width:100px;height:100px;" alt="Avatar" class="" />
+
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PromoCode)
+        </dt>
+
+        <dd class="alert-light">
+            @Html.DisplayFor(model => model.PromoCode)
+        </dd>
+
+
+
+        @foreach (var item in Model.DoctorPatients)
+        {
+            <dd class="alert-light">
+                @item.Name
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DoctorID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

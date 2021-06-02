@@ -1,0 +1,266 @@
+﻿
+@{
+    ViewBag.Title = "فيزيتا فى الصحافة";
+   // Layout = null;
+}
+
+
+    <link rel="~/Content/stylesheet" href="../css/intlTelInput.css">
+
+    <style>
+        .header {
+            color: #36A0FF;
+            font-size: 27px;
+            margin: 50px;
+        }
+
+        .card {
+            left: -6%;
+            width: 100%;
+            height: 25%;
+            transition: 0.3s ease-out;
+            margin-bottom: 40px;
+        }
+
+            .card .imgBox {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+                .card .imgBox img {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 80%;
+                    display: block;
+                    transition: 0.5s;
+                }
+
+                .card .imgBox:hover img {
+                    transform: scale(1.5);
+                }
+
+            .card .content {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 120px;
+                padding: 15px;
+                background: white;
+                transition: all 0.5s cubic-bezier(0.48,-0.28,0.41,1.4);
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+
+            .card:hover .content {
+                width: 100%;
+                height: 75%;
+                left: 0;
+                bottom: 0;
+            }
+
+        .content p {
+            margin: 10px 0 0;
+            padding: 1em 1em;
+            transform: translateY(2em);
+            line-height: 1.3em;
+            transition: 0.3s;
+            text-align: justify;
+            opacity: 0;
+        }
+
+        .card:hover .content p {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 20px rgb(0,0,0,0.7);
+        }
+
+        .main {
+            padding: 0px;
+            margin: 0px;
+        }
+        .mydiv {
+            width: 100%;
+            height: 100%;
+            background-image: url('/Content/images/cover22.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-color: gray;
+        }
+
+        .header {
+            color: #36A0FF;
+            font-size: 27px;
+            margin: 50px;
+        }
+    </style>
+
+
+
+        <!-- =====> page body <==== -->
+        <div class="container-fluid " style=" background-color: lightgrey;">
+            <div class="container col-11 header text-end "><p>فيزيتا في الصحافة</p></div>
+            <div class="  row offset-1 ">
+                <div class="col-12 col-sm-12 col-md-6  ">
+
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img3.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img2.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img4.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img5.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--End left col-->
+
+                <div class="col-12 col-sm-12 col-md-6   ">
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img3.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img2.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img4.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img5.jpg" />
+                            <div class="content">
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="imgBox">
+                            <img src="~/Content/images/img6.jpg" />
+                            <div class="content">
+
+                                <h2>The standard Lorem Ipsum passage</h2>
+                                <p>
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--End right col-->
+            </div><!--End row-->
+
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br />
+        </div><!--End  container-->
+        <!-- End of  body -->
+
+    </div><!-- end of All container body -->
+   

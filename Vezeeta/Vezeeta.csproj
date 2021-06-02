@@ -1,0 +1,1046 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{79CB0797-9FB9-4421-BF97-276B3D6E3FD6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vezeeta</RootNamespace>
+    <AssemblyName>Vezeeta</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44368</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined, Version=1.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.12.1\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JQueryUIHelpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1440f6df3b58b47e, processorArchitecture=MSIL">
+      <HintPath>..\packages\jQueryUIHelpers.Mvc5.3.0.0\lib\net45\JQueryUIHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.23.2.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.9.23.2\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="StarkbankEcdsa, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b2e6337a5d77bfbc, processorArchitecture=MSIL">
+      <HintPath>..\packages\starkbank-ecdsa.1.3.1\lib\net452\StarkbankEcdsa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AppointmentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AreasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DoctorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InsurancesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PatientsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RatingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SpecialtiesController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Controllers\Account2Controller.cs" />
+    <Compile Include="Controllers\AllSignUpDoctorController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\CenterPageController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\CreateEntityController.cs" />
+    <Compile Include="Controllers\DoctorProfileController.cs" />
+    <Compile Include="Controllers\DoctorsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\HospitalPageController.cs" />
+    <Compile Include="Controllers\InsurancePageController.cs" />
+    <Compile Include="Controllers\LifeVezeetaController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\OurTeamController.cs" />
+    <Compile Include="Controllers\pressController.cs" />
+    <Compile Include="Controllers\PrivacyPolityController.cs" />
+    <Compile Include="Controllers\PrivacyPolityDoctorController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\specificController.cs" />
+    <Compile Include="Controllers\TermsOfUseController.cs" />
+    <Compile Include="Controllers\WhoRWController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105010238392_creation.cs" />
+    <Compile Include="Migrations\202105010238392_creation.Designer.cs">
+      <DependentUpon>202105010238392_creation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105040823586_img.cs" />
+    <Compile Include="Migrations\202105040823586_img.Designer.cs">
+      <DependentUpon>202105040823586_img.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105060009559_pass.cs" />
+    <Compile Include="Migrations\202105060009559_pass.Designer.cs">
+      <DependentUpon>202105060009559_pass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105060047357_pass2.cs" />
+    <Compile Include="Migrations\202105060047357_pass2.Designer.cs">
+      <DependentUpon>202105060047357_pass2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105060208438_patientid.cs" />
+    <Compile Include="Migrations\202105060208438_patientid.Designer.cs">
+      <DependentUpon>202105060208438_patientid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105181406002_appoint.cs" />
+    <Compile Include="Migrations\202105181406002_appoint.Designer.cs">
+      <DependentUpon>202105181406002_appoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105182302309_ccc.cs" />
+    <Compile Include="Migrations\202105182302309_ccc.Designer.cs">
+      <DependentUpon>202105182302309_ccc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105200731201_sts.cs" />
+    <Compile Include="Migrations\202105200731201_sts.Designer.cs">
+      <DependentUpon>202105200731201_sts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105241450581_confirm.cs" />
+    <Compile Include="Migrations\202105241450581_confirm.Designer.cs">
+      <DependentUpon>202105241450581_confirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105261110223_rep.cs" />
+    <Compile Include="Migrations\202105261110223_rep.Designer.cs">
+      <DependentUpon>202105261110223_rep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105261407515_att.cs" />
+    <Compile Include="Migrations\202105261407515_att.Designer.cs">
+      <DependentUpon>202105261407515_att.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105261408552_att2.cs" />
+    <Compile Include="Migrations\202105261408552_att2.Designer.cs">
+      <DependentUpon>202105261408552_att2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105262203512_insur.cs" />
+    <Compile Include="Migrations\202105262203512_insur.Designer.cs">
+      <DependentUpon>202105262203512_insur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105272350019_opt.cs" />
+    <Compile Include="Migrations\202105272350019_opt.Designer.cs">
+      <DependentUpon>202105272350019_opt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\AppointmentStatus.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Contactus.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\Insurance.cs" />
+    <Compile Include="Models\MyModel.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\Specialty.cs" />
+    <Compile Include="Models\Title.cs" />
+    <Compile Include="Models\VezeetaIdentity.cs" />
+    <Compile Include="MyFilters\MyAuthorize.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AdminServices.cs" />
+    <Compile Include="Services\DoctorPatientsService.cs" />
+    <Compile Include="Services\IPatientService.cs" />
+    <Compile Include="ViewModel\AccountViewModels.cs" />
+    <Compile Include="ViewModel\AppointmentFormViewModel.cs" />
+    <Compile Include="ViewModel\AppointmentSearchVM.cs" />
+    <Compile Include="ViewModel\AppointmentViewModel.cs" />
+    <Compile Include="ViewModel\AttendanceFormViewModel.cs" />
+    <Compile Include="ViewModel\DoctorDetailViewModel.cs" />
+    <Compile Include="ViewModel\DoctorFormViewModel.cs" />
+    <Compile Include="ViewModel\SignInViewModel.cs" />
+    <Compile Include="ViewModel\ManageViewModels.cs" />
+    <Compile Include="ViewModel\PatientDetailViewModel.cs" />
+    <Compile Include="ViewModel\PatientFormViewModel.cs" />
+    <Compile Include="ViewModel\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\assets\demo\chart-area-demo.js" />
+    <Content Include="Areas\Admin\assets\demo\chart-bar-demo.js" />
+    <Content Include="Areas\Admin\assets\demo\chart-pie-demo.js" />
+    <Content Include="Areas\Admin\assets\demo\datatables-demo.js" />
+    <Content Include="Areas\Admin\assets\img\error-404-monochrome.svg" />
+    <Content Include="Areas\Admin\css\styles.css" />
+    <Content Include="Areas\Admin\js\scripts.js" />
+    <Content Include="Content\apple-touch-icon.png" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\country-flags-16px\16\ad_16.png" />
+    <Content Include="Content\country-flags-16px\16\ae_16.png" />
+    <Content Include="Content\country-flags-16px\16\af_16.png" />
+    <Content Include="Content\country-flags-16px\16\ag_16.png" />
+    <Content Include="Content\country-flags-16px\16\ai_16.png" />
+    <Content Include="Content\country-flags-16px\16\al_16.png" />
+    <Content Include="Content\country-flags-16px\16\am_16.png" />
+    <Content Include="Content\country-flags-16px\16\ao_16.png" />
+    <Content Include="Content\country-flags-16px\16\aq_16.png" />
+    <Content Include="Content\country-flags-16px\16\ar_16.png" />
+    <Content Include="Content\country-flags-16px\16\as_16.png" />
+    <Content Include="Content\country-flags-16px\16\at_16.png" />
+    <Content Include="Content\country-flags-16px\16\au_16.png" />
+    <Content Include="Content\country-flags-16px\16\aw_16.png" />
+    <Content Include="Content\country-flags-16px\16\ax_16.png" />
+    <Content Include="Content\country-flags-16px\16\az_16.png" />
+    <Content Include="Content\country-flags-16px\16\ba_16.png" />
+    <Content Include="Content\country-flags-16px\16\bb_16.png" />
+    <Content Include="Content\country-flags-16px\16\bd_16.png" />
+    <Content Include="Content\country-flags-16px\16\be_16.png" />
+    <Content Include="Content\country-flags-16px\16\bf_16.png" />
+    <Content Include="Content\country-flags-16px\16\bg_16.png" />
+    <Content Include="Content\country-flags-16px\16\bh_16.png" />
+    <Content Include="Content\country-flags-16px\16\bi_16.png" />
+    <Content Include="Content\country-flags-16px\16\bj_16.png" />
+    <Content Include="Content\country-flags-16px\16\bl_16.png" />
+    <Content Include="Content\country-flags-16px\16\bm_16.png" />
+    <Content Include="Content\country-flags-16px\16\bn_16.png" />
+    <Content Include="Content\country-flags-16px\16\bo_16.png" />
+    <Content Include="Content\country-flags-16px\16\bq_16.png" />
+    <Content Include="Content\country-flags-16px\16\br_16.png" />
+    <Content Include="Content\country-flags-16px\16\bs_16.png" />
+    <Content Include="Content\country-flags-16px\16\bt_16.png" />
+    <Content Include="Content\country-flags-16px\16\bv_16.png" />
+    <Content Include="Content\country-flags-16px\16\bw_16.png" />
+    <Content Include="Content\country-flags-16px\16\by_16.png" />
+    <Content Include="Content\country-flags-16px\16\bz_16.png" />
+    <Content Include="Content\country-flags-16px\16\ca_16.png" />
+    <Content Include="Content\country-flags-16px\16\cc_16.png" />
+    <Content Include="Content\country-flags-16px\16\cd_16.png" />
+    <Content Include="Content\country-flags-16px\16\cf_16.png" />
+    <Content Include="Content\country-flags-16px\16\cg_16.png" />
+    <Content Include="Content\country-flags-16px\16\ch_16.png" />
+    <Content Include="Content\country-flags-16px\16\ci_16.png" />
+    <Content Include="Content\country-flags-16px\16\ck_16.png" />
+    <Content Include="Content\country-flags-16px\16\cl_16.png" />
+    <Content Include="Content\country-flags-16px\16\cm_16.png" />
+    <Content Include="Content\country-flags-16px\16\cn_16.png" />
+    <Content Include="Content\country-flags-16px\16\co_16.png" />
+    <Content Include="Content\country-flags-16px\16\cr_16.png" />
+    <Content Include="Content\country-flags-16px\16\cu_16.png" />
+    <Content Include="Content\country-flags-16px\16\cv_16.png" />
+    <Content Include="Content\country-flags-16px\16\cw_16.png" />
+    <Content Include="Content\country-flags-16px\16\cx_16.png" />
+    <Content Include="Content\country-flags-16px\16\cy_16.png" />
+    <Content Include="Content\country-flags-16px\16\cz_16.png" />
+    <Content Include="Content\country-flags-16px\16\de_16.png" />
+    <Content Include="Content\country-flags-16px\16\dj_16.png" />
+    <Content Include="Content\country-flags-16px\16\dk_16.png" />
+    <Content Include="Content\country-flags-16px\16\dm_16.png" />
+    <Content Include="Content\country-flags-16px\16\do_16.png" />
+    <Content Include="Content\country-flags-16px\16\dz_16.png" />
+    <Content Include="Content\country-flags-16px\16\ec_16.png" />
+    <Content Include="Content\country-flags-16px\16\ee_16.png" />
+    <Content Include="Content\country-flags-16px\16\eg_16.png" />
+    <Content Include="Content\country-flags-16px\16\eh_16.png" />
+    <Content Include="Content\country-flags-16px\16\er_16.png" />
+    <Content Include="Content\country-flags-16px\16\es_16.png" />
+    <Content Include="Content\country-flags-16px\16\et_16.png" />
+    <Content Include="Content\country-flags-16px\16\fi_16.png" />
+    <Content Include="Content\country-flags-16px\16\fj_16.png" />
+    <Content Include="Content\country-flags-16px\16\fk_16.png" />
+    <Content Include="Content\country-flags-16px\16\fm_16.png" />
+    <Content Include="Content\country-flags-16px\16\fo_16.png" />
+    <Content Include="Content\country-flags-16px\16\fr_16.png" />
+    <Content Include="Content\country-flags-16px\16\ga_16.png" />
+    <Content Include="Content\country-flags-16px\16\gb_16.png" />
+    <Content Include="Content\country-flags-16px\16\gd_16.png" />
+    <Content Include="Content\country-flags-16px\16\ge_16.png" />
+    <Content Include="Content\country-flags-16px\16\gf_16.png" />
+    <Content Include="Content\country-flags-16px\16\gg_16.png" />
+    <Content Include="Content\country-flags-16px\16\gh_16.png" />
+    <Content Include="Content\country-flags-16px\16\gi_16.png" />
+    <Content Include="Content\country-flags-16px\16\global.jpg" />
+    <Content Include="Content\country-flags-16px\16\gl_16.png" />
+    <Content Include="Content\country-flags-16px\16\gm_16.png" />
+    <Content Include="Content\country-flags-16px\16\gn_16.png" />
+    <Content Include="Content\country-flags-16px\16\gp_16.png" />
+    <Content Include="Content\country-flags-16px\16\gq_16.png" />
+    <Content Include="Content\country-flags-16px\16\gr_16.png" />
+    <Content Include="Content\country-flags-16px\16\gs_16.png" />
+    <Content Include="Content\country-flags-16px\16\gt_16.png" />
+    <Content Include="Content\country-flags-16px\16\gu_16.png" />
+    <Content Include="Content\country-flags-16px\16\gw_16.png" />
+    <Content Include="Content\country-flags-16px\16\gy_16.png" />
+    <Content Include="Content\country-flags-16px\16\hk_16.png" />
+    <Content Include="Content\country-flags-16px\16\hm_16.png" />
+    <Content Include="Content\country-flags-16px\16\hn_16.png" />
+    <Content Include="Content\country-flags-16px\16\hr_16.png" />
+    <Content Include="Content\country-flags-16px\16\ht_16.png" />
+    <Content Include="Content\country-flags-16px\16\hu_16.png" />
+    <Content Include="Content\country-flags-16px\16\id_16.png" />
+    <Content Include="Content\country-flags-16px\16\ie_16.png" />
+    <Content Include="Content\country-flags-16px\16\il_16.png" />
+    <Content Include="Content\country-flags-16px\16\im_16.png" />
+    <Content Include="Content\country-flags-16px\16\in_16.png" />
+    <Content Include="Content\country-flags-16px\16\io_16.png" />
+    <Content Include="Content\country-flags-16px\16\iq_16.png" />
+    <Content Include="Content\country-flags-16px\16\ir_16.png" />
+    <Content Include="Content\country-flags-16px\16\is_16.png" />
+    <Content Include="Content\country-flags-16px\16\it_16.png" />
+    <Content Include="Content\country-flags-16px\16\je_16.png" />
+    <Content Include="Content\country-flags-16px\16\jm_16.png" />
+    <Content Include="Content\country-flags-16px\16\jo_16.png" />
+    <Content Include="Content\country-flags-16px\16\jp_16.png" />
+    <Content Include="Content\country-flags-16px\16\ke_16.png" />
+    <Content Include="Content\country-flags-16px\16\kg_16.png" />
+    <Content Include="Content\country-flags-16px\16\kh_16.png" />
+    <Content Include="Content\country-flags-16px\16\ki_16.png" />
+    <Content Include="Content\country-flags-16px\16\km_16.png" />
+    <Content Include="Content\country-flags-16px\16\kn_16.png" />
+    <Content Include="Content\country-flags-16px\16\kp_16.png" />
+    <Content Include="Content\country-flags-16px\16\kr_16.png" />
+    <Content Include="Content\country-flags-16px\16\kw_16.png" />
+    <Content Include="Content\country-flags-16px\16\ky_16.png" />
+    <Content Include="Content\country-flags-16px\16\kz_16.png" />
+    <Content Include="Content\country-flags-16px\16\la_16.png" />
+    <Content Include="Content\country-flags-16px\16\lb_16.png" />
+    <Content Include="Content\country-flags-16px\16\lc_16.png" />
+    <Content Include="Content\country-flags-16px\16\li_16.png" />
+    <Content Include="Content\country-flags-16px\16\lk_16.png" />
+    <Content Include="Content\country-flags-16px\16\lr_16.png" />
+    <Content Include="Content\country-flags-16px\16\ls_16.png" />
+    <Content Include="Content\country-flags-16px\16\lt_16.png" />
+    <Content Include="Content\country-flags-16px\16\lu_16.png" />
+    <Content Include="Content\country-flags-16px\16\lv_16.png" />
+    <Content Include="Content\country-flags-16px\16\ly_16.png" />
+    <Content Include="Content\country-flags-16px\16\ma_16.png" />
+    <Content Include="Content\country-flags-16px\16\mc_16.png" />
+    <Content Include="Content\country-flags-16px\16\md_16.png" />
+    <Content Include="Content\country-flags-16px\16\me_16.png" />
+    <Content Include="Content\country-flags-16px\16\mf_16.png" />
+    <Content Include="Content\country-flags-16px\16\mg_16.png" />
+    <Content Include="Content\country-flags-16px\16\mh_16.png" />
+    <Content Include="Content\country-flags-16px\16\mk_16.png" />
+    <Content Include="Content\country-flags-16px\16\ml_16.png" />
+    <Content Include="Content\country-flags-16px\16\mm_16.png" />
+    <Content Include="Content\country-flags-16px\16\mn_16.png" />
+    <Content Include="Content\country-flags-16px\16\mo_16.png" />
+    <Content Include="Content\country-flags-16px\16\mp_16.png" />
+    <Content Include="Content\country-flags-16px\16\mq_16.png" />
+    <Content Include="Content\country-flags-16px\16\mr_16.png" />
+    <Content Include="Content\country-flags-16px\16\ms_16.png" />
+    <Content Include="Content\country-flags-16px\16\mt_16.png" />
+    <Content Include="Content\country-flags-16px\16\mu_16.png" />
+    <Content Include="Content\country-flags-16px\16\mv_16.png" />
+    <Content Include="Content\country-flags-16px\16\mw_16.png" />
+    <Content Include="Content\country-flags-16px\16\mx_16.png" />
+    <Content Include="Content\country-flags-16px\16\my_16.png" />
+    <Content Include="Content\country-flags-16px\16\mz_16.png" />
+    <Content Include="Content\country-flags-16px\16\na_16.png" />
+    <Content Include="Content\country-flags-16px\16\nc_16.png" />
+    <Content Include="Content\country-flags-16px\16\ne_16.png" />
+    <Content Include="Content\country-flags-16px\16\nf_16.png" />
+    <Content Include="Content\country-flags-16px\16\ng_16.png" />
+    <Content Include="Content\country-flags-16px\16\ni_16.png" />
+    <Content Include="Content\country-flags-16px\16\nl_16.png" />
+    <Content Include="Content\country-flags-16px\16\no_16.png" />
+    <Content Include="Content\country-flags-16px\16\np_16.png" />
+    <Content Include="Content\country-flags-16px\16\nr_16.png" />
+    <Content Include="Content\country-flags-16px\16\nu_16.png" />
+    <Content Include="Content\country-flags-16px\16\nz_16.png" />
+    <Content Include="Content\country-flags-16px\16\om_16.png" />
+    <Content Include="Content\country-flags-16px\16\pa_16.png" />
+    <Content Include="Content\country-flags-16px\16\pe_16.png" />
+    <Content Include="Content\country-flags-16px\16\pf_16.png" />
+    <Content Include="Content\country-flags-16px\16\pg_16.png" />
+    <Content Include="Content\country-flags-16px\16\ph_16.png" />
+    <Content Include="Content\country-flags-16px\16\pk_16.png" />
+    <Content Include="Content\country-flags-16px\16\pl_16.png" />
+    <Content Include="Content\country-flags-16px\16\pm_16.png" />
+    <Content Include="Content\country-flags-16px\16\pn_16.png" />
+    <Content Include="Content\country-flags-16px\16\pr_16.png" />
+    <Content Include="Content\country-flags-16px\16\ps_16.png" />
+    <Content Include="Content\country-flags-16px\16\pt_16.png" />
+    <Content Include="Content\country-flags-16px\16\pw_16.png" />
+    <Content Include="Content\country-flags-16px\16\py_16.png" />
+    <Content Include="Content\country-flags-16px\16\qa_16.png" />
+    <Content Include="Content\country-flags-16px\16\re_16.png" />
+    <Content Include="Content\country-flags-16px\16\ro_16.png" />
+    <Content Include="Content\country-flags-16px\16\rs_16.png" />
+    <Content Include="Content\country-flags-16px\16\ru_16.png" />
+    <Content Include="Content\country-flags-16px\16\rw_16.png" />
+    <Content Include="Content\country-flags-16px\16\sa_16.png" />
+    <Content Include="Content\country-flags-16px\16\sb_16.png" />
+    <Content Include="Content\country-flags-16px\16\sc_16.png" />
+    <Content Include="Content\country-flags-16px\16\sd_16.png" />
+    <Content Include="Content\country-flags-16px\16\se_16.png" />
+    <Content Include="Content\country-flags-16px\16\sg_16.png" />
+    <Content Include="Content\country-flags-16px\16\sh_16.png" />
+    <Content Include="Content\country-flags-16px\16\si_16.png" />
+    <Content Include="Content\country-flags-16px\16\sj_16.png" />
+    <Content Include="Content\country-flags-16px\16\sk_16.png" />
+    <Content Include="Content\country-flags-16px\16\sl_16.png" />
+    <Content Include="Content\country-flags-16px\16\sm_16.png" />
+    <Content Include="Content\country-flags-16px\16\sn_16.png" />
+    <Content Include="Content\country-flags-16px\16\so_16.png" />
+    <Content Include="Content\country-flags-16px\16\sr_16.png" />
+    <Content Include="Content\country-flags-16px\16\ss_16.png" />
+    <Content Include="Content\country-flags-16px\16\st_16.png" />
+    <Content Include="Content\country-flags-16px\16\sv_16.png" />
+    <Content Include="Content\country-flags-16px\16\sx_16.png" />
+    <Content Include="Content\country-flags-16px\16\sy_16.png" />
+    <Content Include="Content\country-flags-16px\16\sz_16.png" />
+    <Content Include="Content\country-flags-16px\16\tc_16.png" />
+    <Content Include="Content\country-flags-16px\16\td_16.png" />
+    <Content Include="Content\country-flags-16px\16\tf_16.png" />
+    <Content Include="Content\country-flags-16px\16\tg_16.png" />
+    <Content Include="Content\country-flags-16px\16\th_16.png" />
+    <Content Include="Content\country-flags-16px\16\tj_16.png" />
+    <Content Include="Content\country-flags-16px\16\tk_16.png" />
+    <Content Include="Content\country-flags-16px\16\tl_16.png" />
+    <Content Include="Content\country-flags-16px\16\tm_16.png" />
+    <Content Include="Content\country-flags-16px\16\tn_16.png" />
+    <Content Include="Content\country-flags-16px\16\to_16.png" />
+    <Content Include="Content\country-flags-16px\16\tr_16.png" />
+    <Content Include="Content\country-flags-16px\16\tt_16.png" />
+    <Content Include="Content\country-flags-16px\16\tv_16.png" />
+    <Content Include="Content\country-flags-16px\16\tw_16.png" />
+    <Content Include="Content\country-flags-16px\16\tz_16.png" />
+    <Content Include="Content\country-flags-16px\16\ua_16.png" />
+    <Content Include="Content\country-flags-16px\16\ug_16.png" />
+    <Content Include="Content\country-flags-16px\16\um_16.png" />
+    <Content Include="Content\country-flags-16px\16\us_16.png" />
+    <Content Include="Content\country-flags-16px\16\uy_16.png" />
+    <Content Include="Content\country-flags-16px\16\uz_16.png" />
+    <Content Include="Content\country-flags-16px\16\va_16.png" />
+    <Content Include="Content\country-flags-16px\16\vc_16.png" />
+    <Content Include="Content\country-flags-16px\16\ve_16.png" />
+    <Content Include="Content\country-flags-16px\16\vg_16.png" />
+    <Content Include="Content\country-flags-16px\16\vi_16.png" />
+    <Content Include="Content\country-flags-16px\16\vn_16.png" />
+    <Content Include="Content\country-flags-16px\16\vu_16.png" />
+    <Content Include="Content\country-flags-16px\16\wf_16.png" />
+    <Content Include="Content\country-flags-16px\16\ws_16.png" />
+    <Content Include="Content\country-flags-16px\16\ye_16.png" />
+    <Content Include="Content\country-flags-16px\16\yt_16.png" />
+    <Content Include="Content\country-flags-16px\16\za_16.png" />
+    <Content Include="Content\country-flags-16px\16\zm_16.png" />
+    <Content Include="Content\country-flags-16px\16\zw_16.png" />
+    <Content Include="Content\country-flags-16px\LICENSE.TXT" />
+    <Content Include="Content\css\all.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\demo.css" />
+    <Content Include="Content\css\DoctorSignup.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\intlTelInput.css" />
+    <Content Include="Content\css\Sidebar.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\styleSh.css" />
+    <Content Include="Content\favicon.png" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Images\1.jpg" />
+    <Content Include="Content\Images\2.jpg" />
+    <Content Include="Content\Images\3.jpg" />
+    <Content Include="Content\Images\4.jpg" />
+    <Content Include="Content\Images\5.jpg" />
+    <Content Include="Content\Images\6.jpg" />
+    <Content Include="Content\Images\7.jpg" />
+    <Content Include="Content\Images\8.jpg" />
+    <Content Include="Content\Images\bg-01.jpg" />
+    <Content Include="Content\Images\bgLog.jpg" />
+    <Content Include="Content\Images\btn1.PNG" />
+    <Content Include="Content\Images\btn2.PNG" />
+    <Content Include="Content\Images\Capture2.PNG" />
+    <Content Include="Content\Images\cover.jpg" />
+    <Content Include="Content\Images\cover22.jpg" />
+    <Content Include="Content\Images\doc.jpg" />
+    <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Images\icons8-camera-24.png" />
+    <Content Include="Content\Images\IDDOC.jpg" />
+    <Content Include="Content\Images\img-01.png" />
+    <Content Include="Content\Images\img1.jpg" />
+    <Content Include="Content\Images\img2.jpg" />
+    <Content Include="Content\Images\img3.jpg" />
+    <Content Include="Content\Images\img4.jpg" />
+    <Content Include="Content\Images\img5.jpg" />
+    <Content Include="Content\Images\img6.jpg" />
+    <Content Include="Content\Images\img7.jpg" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logohead.jfif" />
+    <Content Include="Content\Images\mycover.jpg" />
+    <Content Include="Content\Images\slide-1.jpg" />
+    <Content Include="Content\Images\Vezeetalogo.jpg" />
+    <Content Include="Content\jss\bootstrap.js" />
+    <Content Include="Content\jss\bootstrap.min.js" />
+    <Content Include="Content\jss\JQuery-3.3.1.js" />
+    <Content Include="Content\jss\JQuery-3.3.1.min.js" />
+    <Content Include="Content\jss\popper.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\data.js" />
+    <Content Include="Content\js\data.min.js" />
+    <Content Include="Content\js\intlTelInput-jquery.js" />
+    <Content Include="Content\js\intlTelInput-jquery.min.js" />
+    <Content Include="Content\js\intlTelInput.js" />
+    <Content Include="Content\js\intlTelInput.min.js" />
+    <Content Include="Content\js\JQuery-3.3.1.js" />
+    <Content Include="Content\js\JQuery-3.3.1.min.js" />
+    <Content Include="Content\js\jquery-3.6.0.js" />
+    <Content Include="Content\js\jquery-3.6.0.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\popper.js" />
+    <Content Include="Content\js\selectFilter.min.js" />
+    <Content Include="Content\js\utils.js" />
+    <Content Include="Content\src\cascadingLists.js" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\vendor\animate.css\animate.compat.css" />
+    <Content Include="Content\vendor\animate.css\animate.css" />
+    <Content Include="Content\vendor\animate.css\animate.min.css" />
+    <Content Include="Content\vendor\aos\aos.css" />
+    <Content Include="Content\vendor\aos\aos.js" />
+    <Content Include="Content\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="Content\vendor\bootstrap-icons\index.html" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\vendor\boxicons\css\animations.css" />
+    <Content Include="Content\vendor\boxicons\css\boxicons.css" />
+    <Content Include="Content\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="Content\vendor\boxicons\css\transformations.css" />
+    <Content Include="Content\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="Content\vendor\fontawesome-free\css\all.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\all.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\brands.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\brands.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\regular.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\regular.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\solid.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\solid.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Content\vendor\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\vendor\glightbox\css\glightbox.css" />
+    <Content Include="Content\vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="Content\vendor\glightbox\js\glightbox.js" />
+    <Content Include="Content\vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="Content\vendor\php-email-form\validate.js" />
+    <Content Include="Content\vendor\purecounter\purecounter.js" />
+    <Content Include="Content\vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="Content\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="Content\vesita\10.PNG" />
+    <Content Include="Content\vesita\100.PNG" />
+    <Content Include="Content\vesita\11.PNG" />
+    <Content Include="Content\vesita\12.PNG" />
+    <Content Include="Content\vesita\13.PNG" />
+    <Content Include="Content\vesita\14.PNG" />
+    <Content Include="Content\vesita\15.PNG" />
+    <Content Include="Content\vesita\16.PNG" />
+    <Content Include="Content\vesita\17.PNG" />
+    <Content Include="Content\vesita\18.png" />
+    <Content Include="Content\vesita\2.PNG" />
+    <Content Include="Content\vesita\200.PNG" />
+    <Content Include="Content\vesita\3.PNG" />
+    <Content Include="Content\vesita\300.PNG" />
+    <Content Include="Content\vesita\4.PNG" />
+    <Content Include="Content\vesita\400.PNG" />
+    <Content Include="Content\vesita\491-4912905_the-doctors-doctors-tv-show-logo-hd-png.png" />
+    <Content Include="Content\vesita\5.PNG" />
+    <Content Include="Content\vesita\a.PNG" />
+    <Content Include="Content\vesita\btn1.PNG" />
+    <Content Include="Content\vesita\btn2.PNG" />
+    <Content Include="Content\vesita\caldoc.jpg" />
+    <Content Include="Content\vesita\call.jpg" />
+    <Content Include="Content\vesita\call2.jpg" />
+    <Content Include="Content\vesita\call3.jpg" />
+    <Content Include="Content\vesita\calll.jpg" />
+    <Content Include="Content\vesita\Capture.PNG" />
+    <Content Include="Content\vesita\d.PNG" />
+    <Content Include="Content\vesita\Doctors-Word-Of-The-Day.jpg" />
+    <Content Include="Content\vesita\e.PNG" />
+    <Content Include="Content\vesita\ee.PNG" />
+    <Content Include="Content\vesita\h.PNG" />
+    <Content Include="Content\vesita\health.jpg" />
+    <Content Include="Content\vesita\homecovernewen4-eg.jpg" />
+    <Content Include="Content\vesita\r.PNG" />
+    <Content Include="Content\vesita\rr.PNG" />
+    <Content Include="Content\vesita\rrr.PNG" />
+    <Content Include="Content\vesita\rrrr.PNG" />
+    <Content Include="Content\vesita\shutterstock_358050530-800x480.jpg" />
+    <Content Include="Content\vesita\smiling-female-doctor-holding-medical-records-lab-coat-her-office-clipboard-looking-camera-56673035.jpg" />
+    <Content Include="Content\vesita\the-doctors-logo-r.png" />
+    <Content Include="Content\vesita\thedoc.png" />
+    <Content Include="Content\vesita\v.PNG" />
+    <Content Include="Content\vesita\visit.jpg" />
+    <Content Include="Content\vesita\visit2.jpg" />
+    <Content Include="Content\vesita\visit3.jpg" />
+    <Content Include="Content\vesita\wysiwyg-uploads_1569586526901-doctor.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="Content\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="Content\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="Content\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="Content\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_OffLine.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctor\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctor\_GridDoctor.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctor\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctor\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctor\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Doctor\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\_GridPatient.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointments\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointments\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointments\_GirdAppointment.cshtml" />
+    <Content Include="Areas\Admin\Views\Ratings\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Ratings\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Ratings\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Ratings\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Ratings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Ratings\_GridRating.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointments\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointments\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Appointments\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LogOut.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Areas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Specialties\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Specialties\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Specialties\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Specialties\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Specialties\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Patients\Attend.cshtml" />
+    <Content Include="Areas\Admin\Views\Insurances\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Insurances\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Insurances\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Insurances\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Insurances\Index.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-3.0.0.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-3.0.0.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\PrivacyPolity\PrivacyPolity.cshtml" />
+    <Content Include="Views\TermsOfUse\TermsOfUse.cshtml" />
+    <Content Include="Views\PrivacyPolityDoctor\PrivacyPolityDoctor.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.cshtml" />
+    <Content Include="Views\CenterPage\Center.cshtml" />
+    <Content Include="Views\DoctorProfile\DoctorProfile.cshtml" />
+    <Content Include="Views\HospitalPage\HospitalPage.cshtml" />
+    <Content Include="Views\InsurancePage\InsurancePage.cshtml" />
+    <Content Include="Views\LifeVezeeta\LifeVezeeta.cshtml" />
+    <Content Include="Views\LogIn\Login.cshtml" />
+    <Content Include="Views\OurTeam\Ourteam.cshtml" />
+    <Content Include="Views\press\press.cshtml" />
+    <Content Include="Views\WhoRW\Whowhat.cshtml" />
+    <Content Include="Views\Shared\_LayoutNew.cshtml" />
+    <Content Include="Views\AllSignUpDoctor\SignUpDoctor.cshtml" />
+    <Content Include="Views\Doctors\Details.cshtml" />
+    <Content Include="Views\Doctors\HomePage.cshtml" />
+    <Content Include="Views\Doctors\City2.cshtml" />
+    <Content Include="Views\Shared\_SearchPView.cshtml" />
+    <Content Include="Views\Shared\_NaveBar.cshtml" />
+    <Content Include="Views\Shared\_FooterPView.cshtml" />
+    <Content Include="Views\Register\RegisterPatient.cshtml" />
+    <Content Include="Views\Register\Register.cshtml" />
+    <Content Include="Views\AllSignUpDoctor\RegisterDoctor.cshtml" />
+    <Content Include="Views\Doctors\specific2.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
+    <Content Include="Views\Appointment\Edit.cshtml" />
+    <Content Include="Views\Appointment\PatientAppointments.cshtml" />
+    <Content Include="Views\Doctors\DoctorAppointments.cshtml" />
+    <Content Include="Views\Doctors\TodayAppointments.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105010238392_creation.resx">
+      <DependentUpon>202105010238392_creation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105040823586_img.resx">
+      <DependentUpon>202105040823586_img.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105060009559_pass.resx">
+      <DependentUpon>202105060009559_pass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105060047357_pass2.resx">
+      <DependentUpon>202105060047357_pass2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105060208438_patientid.resx">
+      <DependentUpon>202105060208438_patientid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105181406002_appoint.resx">
+      <DependentUpon>202105181406002_appoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105182302309_ccc.resx">
+      <DependentUpon>202105182302309_ccc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105200731201_sts.resx">
+      <DependentUpon>202105200731201_sts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105241450581_confirm.resx">
+      <DependentUpon>202105241450581_confirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261110223_rep.resx">
+      <DependentUpon>202105261110223_rep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261407515_att.resx">
+      <DependentUpon>202105261407515_att.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261408552_att2.resx">
+      <DependentUpon>202105261408552_att2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105262203512_insur.resx">
+      <DependentUpon>202105262203512_insur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105272350019_opt.resx">
+      <DependentUpon>202105272350019_opt.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55026</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44368/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

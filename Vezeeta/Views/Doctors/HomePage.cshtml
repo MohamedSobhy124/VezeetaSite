@@ -1,0 +1,529 @@
+﻿@model IEnumerable<Vezeeta.Models.Doctor>
+@{
+    ViewBag.Title = "HomePage";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>فيزيتا | احجز أفضل دكتور و اطلب أدوية</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- link bootstrap 4-->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+    <!-- other style -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link rel="icon" href="~/Content/images/logohead.jfif" />
+
+    <style>
+        body {
+            padding-top: 10px;
+            background-color: white;
+        }
+
+        .carousel-item {
+            height: 700px;
+        }
+
+        #imagecard {
+            height: 50%;
+        }
+
+        #img {
+            height: 200px;
+        }
+
+        .health {
+            height: 80px;
+            width: 80px;
+        }
+
+        .links {
+            margin-left: 30px;
+            color: slategray;
+        }
+
+        .icon {
+            margin-left: 30%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    @{
+        Html.RenderPartial("_NaveBar");
+    }
+    <!-- End Header -->
+    <!-- =====> page body <==== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="hover">
+        <div class="carousel-caption d-none d-md-block">
+            <div class="bg-light ">
+                <div>
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- Button trigger modal -->
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-plight btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+                                    <img src="~/Content/vesita/btn1.PNG" width="100%" />
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-plight btn-block" data-toggle="modal" data-target="#exampleModalCenter">
+                                <img src="~/Content/vesita/btn2.PNG" width="100%" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                @{
+                    Html.RenderPartial("_SearchPView");
+                }
+            </div> <!--container-->
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="5000">
+                <img src="~/Content/vesita/homecovernewen4-eg.jpg" width="100%" />
+            </div>
+            <div class="carousel-item" data-interval="100">
+                <img src="~/Content/vesita/wysiwyg-uploads_1569586526901-doctor.jpg" width="100%" />
+            </div>
+            <div class="carousel-item" data-interval="2500">
+                <img src="~/Content/vesita/shutterstock_358050530-800x480.jpg" width="100%" />
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <br><br><br>
+
+    <!-------------------------------------------Body------------------------------------>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-5">
+                        <h2 style="text-align: right;color: gray">زيارة منزلية </h2>
+                        <p style="text-align: right;color: gray">أختار التخصص و الدكتور و هيجيلك للبيت </p>
+                        <br><br>
+                        <a href="#">  <p style="text-align: right; " class="text-primary"><i class="fa fa-arrow-left text-danger " aria-hidden="true" style="margin-right:  20px;"></i>أحجز الأن </p></a>
+                    </div><!--text-->
+                    <div class="col-7">
+                        <img id="img" src="~/Content/vesita/visit2.jpg" width="100%" />
+                    </div><!--img-->
+                </div>
+            </div> <!--end first div-->
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-5">
+                        <h2 style="text-align: right;color: gray">مكالمه دكتور</h2>
+                        <p style="text-align: right;color: gray">للمتابعه عبر مكالمه صوتيه او فديو</p>
+                        <br><br>
+                        <a href="#">  <p style="text-align: right; " class="text-primary"><i class="fa fa-arrow-left text-danger " aria-hidden="true" style="margin-right:  20px;"></i>أحجز الأن </p></a>
+                    </div><!--text-->
+                    <div class="col-7">
+                        <img id="img" src="~/Content/vesita/caldoc.jpg" width="100%" />
+                    </div><!--img-->
+                </div>
+            </div> <!--end second div-->
+        </div> <!-- right div visit-->
+        <br><br><br>
+
+        <div class="row">
+            <div class="col-2">
+                <i class="fa fa-arrow-left text-secondary fa-lg" aria-hidden="true"></i>
+            </div>
+            <div class="col-7">
+                <h2 style="color: dimgray;text-align: right;">عندك أعراض كورونا ؟</h2>
+                <p style="text-align: right;color: dimgray;">تقدر تسأل وتستفسر عن فيروس كورونا بمكالمه مجانية مع دكتور باطنة برعايه وزارة الصحة و السكان من الساعة 8 ص ل 12 ص</p>
+            </div>
+            <div class="col-2">
+                <img class="health" style="text-align: right;" src="~/Content/vesita/health.jpg" width="100%;" />
+            </div><!-- hospital img-->
+        </div>
+        <hr><br>
+
+        <div class="jumbotron">
+            <p class="h1 text-right" style="color: dimgray;"><b>أختار من أحسن العروض</b> </p>
+        </div>
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+            <!--Controls-->
+            <div class="controls-top">
+                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+            </div>
+            <!--/.Controls-->
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                <li data-target="#multi-item-example" data-slide-to="1"></li>
+                <li data-target="#multi-item-example" data-slide-to="2"></li>
+            </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <!--First slide-->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/d.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">تركيب التقويم المعدني </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 6000 LE</p><p style="color: dodgerblue;text-align: right;">4020 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/a.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">تنظيف البشره </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 150 LE</p><p style="color: dodgerblue;text-align: right;">81 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/h.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">تنظيف الأسنان </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 400 LE</p><p style="color: dodgerblue;text-align: right;">200 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.First slide-->
+                <!--Second slide-->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/e.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">تقشير الوجه </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 150 LE</p><p style="color: dodgerblue;text-align: right;">81 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/ee.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">فيتامين-د</h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 938 LE</p><p style="color: dodgerblue;text-align: right;">150 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/r.PNG"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">ازاله الشعر باليزر </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 600 LE</p><p style="color: dodgerblue;text-align: right;">300 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.Second slide-->
+                <!--Third slide-->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/rr.PNG"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">أنقاص الوزن </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 300 LE</p><p style="color: dodgerblue;text-align: right;">150 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/rrr.PNG"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">تصحيح النظر </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 3600 LE</p><p style="color: dodgerblue;text-align: right;">2088 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/rrrr.PNG"
+                                     alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">تلميع الأسنان </h4>
+                                    <p class="card-text" style="text-decoration: line-through;color: gray;text-align: right;"> 300 LE</p><p style="color: dodgerblue;text-align: right;">100 LE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.Third slide-->
+            </div><!--/.Slides-->
+        </div><!--/.Carousel Wrapper-->
+        <p class="h1 text-right" style="color: dimgray;"><b>أختار من أحسن التخصص</b> </p>
+        <div id="multii-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+            <!--Controls-->
+            <div class="controls-top">
+                <a class="btn-floating" href="#multii-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+                <a class="btn-floating" href="#multii-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+            </div><!--/.Controls-->
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#multii-item-example" data-slide-to="0" class="active"></li>
+                <li data-target="#multii-item-example" data-slide-to="1"></li>
+                <li data-target="#multii-item-example" data-slide-to="2"></li>
+            </ol><!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <!--First slide-->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/12.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">نفسي </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/11.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">اسنان </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/10.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">جلدية </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.First slide-->
+                <!--Second slide-->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/13.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">أطفال و حديثي ولادة </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/14.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">مخ و أعصاب  </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/15.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">عظام </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.Second slide-->
+                <!--Third slide-->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/18.PNG" alt="Card image cap" height="290px;">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;"> ليزيك </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/17.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">أنف و أذن و حنجرة</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 clearfix d-none d-md-block">
+                            <div class="card mb-2">
+                                <img class="card-img-top" src="~/Content/vesita/16.PNG" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="text-align: right;">نساء و تزليدر </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.Third slide-->
+            </div><!--/.Slides-->
+        </div><!--/.Carousel Wrapper-->
+    </div> <!-- end container-->
+
+    <div class="service">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-3">
+                    <div class="service-item">
+                        <img src="~/Content/vesita/400.PNG" alt="Icon" class="icon">
+                        <h3 style="color:dimgray;text-align: right;"><b>احجز مجاناً، و ادفع في العيادة</b></h3>
+                        <br>
+                        <p style="color: gray;text-align: right;">
+                            سعر الكشف على فيزيتا نفس سعر الكشف في العيادة، بدون أي مصاريف إضافية
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-3">
+                    <div class="service-item">
+                        <img src="~/Content/vesita/300.PNG" alt="Icon" class="icon">
+                        <h3 style="color:dimgray;text-align: right;"><b>حجزك مؤكد مع الدكتور</b></h3>
+                        <br><br>
+                        <p style="color: gray;text-align: right;">
+                            حجزك مؤكد بمجرد اختيارك من المواعيد المتاحة للدكتور
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-3">
+                    <div class="service-item">
+                        <img src="~/Content/vesita/200.PNG" alt="Icon" class="icon">
+                        <h3 style="color:dimgray;text-align: right;"><b>تقييمات حقيقية من المرضى</b></h3>
+                        <br>
+                        <p style="color: gray;text-align: right;">
+                            تقييمات الدكاترة من مرضى حجزوا على فيزيتا و زاروا الدكتور بالفعل
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-3">
+                    <div class="service-item">
+                        <img src="~/Content/vesita/100.PNG" alt="Icon" class="icon">
+                        <h3 style="color:dimgray;text-align: right;"><b>كل احتياجاتك على فيزيتا</b></h3>
+                        <br>
+                        <p style="color: gray;text-align: right;">
+                            ابحث و احجز كشف مع دكتور في عيادة، مستشفى، زيارة منزلية، أو عبر مكالمة. ممكن كمان تطلب أدوية، أو تحجز خدمة أو عملية بأحسن سعر
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="~/Content/vesita/v.PNG" style="border-radius: 10px;" width="100%" />
+            </div>
+        </div>
+    </div> <!-- end container-->
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <ul style="list-style: none;text-align: right;">
+                    <h3 style="color: dimgray;">إختار المحافظة وإحجز كشف دكتور</h3>
+                    @foreach (var item in Model.Select(a => a.City.CityName).Distinct())
+                    {
+                        <a href="/doctors/search?docname=@item" class="links">@item </a>
+
+                    }
+
+                </ul>
+            </div> <!--end part one-->
+            <div class="col-12 col-md-6">
+                <ul style="list-style: none;text-align: right;">
+                    <h3 style="color: dimgray;">إختار التخصص وإحجز كشف دكتور</h3>
+                    @foreach (var item in Model.Select(a => a.Specialty.Specilty).Distinct())
+                    {
+                        <a href="/doctors/search?docname=@item" class="links">@item </a>
+
+                    }
+                </ul>
+            </div> <!--end part two-->
+        </div> <!--end row-->
+    </div> <!-- end container-->
+    <!-- ======= Footer ======= -->
+    @{
+        Html.RenderPartial("_FooterPView");
+    }
+    <!-- End Footer -->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#ID").change(function () {
+                var cityId = $(this).val();
+                debugger
+                $.ajax({
+                    type: "Post",
+                    url: "/Doctors/GetAreasList/id=" + cityId,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $("#ID").empty();
+                        $("#ID").append(response);
+                    }
+                })
+            });
+        });
+
+        var t;
+        var start = $('#myCarousel').find('.active').attr('data-interval');
+        t = setTimeout("$('#myCarousel').carousel({interval: 1000});", start - 1000);
+        $('#myCarousel').on('slid.bs.carousel', function () {
+            clearTimeout(t);
+            var duration = $(this).find('.active').attr('data-interval');
+
+            console.log(duration);
+
+            $('#myCarousel').carousel('pause');
+            t = setTimeout("$('#myCarousel').carousel();", duration - 1000);
+        })
+        $('.carousel-control-next').on('click', function () {
+            clearTimeout(t);
+        });
+
+        $('.carousel-control-prev').on('click', function () {
+            clearTimeout(t);
+        });
+
+    </script>
+
+    <!-- Main JS File -->
+    <script src="~/Content/js/main.js"></script>
+    <!-- link 4-->
+    <script src="~/Content/jss/JQuery-3.3.1.min.js"></script>
+    <script src="~/Content/jss/popper.js"></script>
+    <script src="~/Content/jss/bootstrap.js"></script>
+</body>
+
+</html>
+

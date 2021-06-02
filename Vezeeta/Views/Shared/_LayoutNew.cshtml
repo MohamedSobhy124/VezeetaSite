@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>@ViewBag.Title</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- My Styling -->
+    <link href="~/Content/CSS/style.css" rel="stylesheet">
+    <link rel="icon" href="~/Content/images/logohead.jfif" />
+    <style>
+        .mydiv {
+            width: 100%;
+            height: 100%;
+            background-image: url('/Content/images/cover22.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-color: gray;
+        }
+
+        .header {
+            color: #36A0FF;
+            font-size: 27px;
+            margin: 50px;
+        }
+
+        .main {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .DocDiv {
+            background-color: white;
+            border: none;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+            .DocDiv:hover {
+                background-color: rgb(226, 230, 234);
+            }
+
+        li {
+            list-style: none;
+        }
+
+        .appoiunts:hover {
+            background-color: rgb(59, 146, 223);
+            border-radius: 10px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 90%;
+            height: 50%;
+            border-radius: 50%;
+            box-shadow: gray 5px 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    @{
+        Html.RenderPartial("_NaveBar");
+    }
+    <!-- End Header -->
+    <!-- =====> page body <==== -->
+    <br /><br />
+    <div class="container-fluid  d-none d-lg-block col-md-12 mydiv " style=" background-color: lightgrey;">
+
+        <div class="container row pt-5  ">
+
+            <div class="col-7"></div>
+            <div class="col-5 text-end ">
+                <h2>احجز مع افضل دكتور (التخصص) في مصر</h2>
+                <h3>احجز اونلاين او كلم<i class="fa fa-phone text-danger"></i>١٦٦٧٦</h3>
+                <h5>١٥٠٠٠ دكتور -٩٠٠٠ استاذ واستشاري - اكثر من ٤٠ تخصص</h5>
+            </div>
+
+        </div>
+
+       <!--pagination-->
+    </div>
+
+
+    @RenderBody()
+
+
+    <!-- ======= Footer ======= -->
+    @{
+        Html.RenderPartial("_FooterPView");
+    }
+    <!-- End Footer -->
+    <!-- Main JS File -->
+    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/jss/JQuery-3.3.1.min.js"></script>
+    <script src="~/Content/jss/popper.js"></script>
+    <script src="~/Content/jss/bootstrap.js"></script>
+
+
+</body>
+
+</html>
+
+

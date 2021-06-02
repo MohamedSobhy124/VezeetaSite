@@ -1,0 +1,266 @@
+﻿@model Vezeeta.Models.Doctor
+@{
+    ViewBag.Title = "SignUpDoctor";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup for a new account | Vezeeta</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
+    <!-- Vendor CSS Files -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/Content/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/intlTelInput.css">
+    <!-- <link rel="stylesheet" href="build/css/demo.css"> -->
+    <!-- My Styling -->
+    <link href="~/Content/CSS/DoctorSignup.css" rel="stylesheet" />
+    <link href="~/Content/CSS/Sidebar.css" rel="stylesheet" />
+    <link href="~/Content/CSS/style.css" rel="stylesheet" />
+    <link rel="icon" href="~/Content/images/logohead.jfif" />
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    <script>
+        $(function () {
+            $("#ContID").change(function () {
+                $.get("/AllSignUpDoctor/GetStateById", { CityID: $("#ContID").val() }, function (data) {
+                    $("#st").empty();
+                    $.each(data, function (index, row) {
+                        $("#st").append("<option value='" + row.AreaID + "'>" + row.AreaName + "</option>")
+                    });
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center ">
+            <a href="/doctors/HomePage/" class="logo me-auto"><img src="~/Content/images/logo.png" alt=""></a>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+               
+            </nav>
+        </div>
+    </header><!-- End Header -->
+    <br /><br /><br /><br />
+    <div class="main-container">
+        <div style="padding: 48px 0; background-color: white">
+            <div class="signup-step">
+                <div>
+                    <h1 class="doc-reg-title">Enter your personal info</h1>
+                    <h3 class="promption">This is your personal account information.</h3>
+                </div>
+            </div>
+            @using (Html.BeginForm("SignUpDoctor", "AllSignUpDoctor", FormMethod.Post, htmlAttributes: new { @class = "", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="flex-column">
+                    <div class="signup-form">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row justify-content-between">
+                            <div class="upload-photo col-1">
+                                <div class="uimg">
+                                    <input type="file" name="DocImg" class="form-control" style="z-index: 1; width:500px ; height:500px; border-radius:50%; background-repeat:no-repeat;background-position:center; background-image:url(/Content/Images/icons8-camera-24.png)" />
+                                </div>
+                            </div>
+                            <div class="fields-container col-8 offset-3">
+                                <div class="div-input">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text fa fa-user" id="basic-addon1"></span>
+                                        </div>
+                                        @Html.EditorFor(model => model.FName, new { htmlAttributes = new { @class = "form-control", style = "margin-right: 24px;", placeholder = "First Name" } })
+                                        @Html.ValidationMessageFor(model => model.FName, "", new { @class = "text-danger" })
+                                    </div>
+                                    @Html.EditorFor(model => model.LName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })<br /><br />
+                                    @Html.ValidationMessageFor(model => model.LName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="div-input" style="width: 100%">
+                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", id = "phone", style = "width: 100%", placeholder = "Enter Your Phone Number" } })<br /><br />
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="div-input  ">
+                                    <span class="input-group-text fa fa-stethoscope"></span>
+                                    @Html.DropDownList("SpecialtyID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Specialty, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="div-input d-none">
+                                    <span class="input-group-text fa fa-envelope"></span>
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control ", placeholder = "Email Address" } })<br /><br />
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="div-input d-none">
+                                    <span class="input-group-text fa fa-lock"></span>
+                                    @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })<br /><br />
+                                    @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2", style = "color:gray" })
+                                    <div class="col-md-10">
+                                        <div class="form-control">
+                                            Male
+                                            @Html.RadioButtonFor(model => model.Gender, "1")
+                                            Female
+                                            @Html.RadioButtonFor(model => model.Gender, "2")
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2", style = "color:gray" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div style="margin-top:30px">
+                                    <div>
+                                        <p class="control-label col-md-5 " , style="color:gray">Chooce ID Image </p>
+                                        <input type="file" name="DocImg" class="form-control" style="z-index: 1; width:350px ; height:150px;  background-repeat:no-repeat;background-position:center; background-image:url(/Content/Images/IDDOC.jpg)" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group hidden">
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("AdminID", null, htmlAttributes: new { @class = "form-control d-none" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signup-step">
+                        <div>
+                            <h1 class="doc-reg-title">Create your Entity</h1>
+                            <h3 class="promption">Enter your entity details.</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="signup-form w-100">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <select class="form-control" name="Title">
+                                <option value="1">Professer</option>
+                                <option value="2">Lecturer</option>
+                                <option value="3">Consultant</option>
+                                <option value="4">Speclalist</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="signup-form w-100">
+                        @Html.LabelFor(model => model.Entity, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <select class="form-control" name="Entity">
+                                <option value="1">Hospital</option>
+                                <option value="2">Clinic</option>
+                                <option value="3">Center</option>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.Entity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="fields-container px-5 ">
+                        <div style="margin-bottom: 32px;">
+                            <h3 style="font-weight: 500;margin-bottom:16px;font-size: 18px;color:rgb(88, 89, 91)">Pricing</h3>
+                            <div style="height: 30px;" class="row">
+                                <div style="width: 40%;">
+                                    @Html.RadioButtonFor(model => model.PromoCode, "true") Monthly Fees + Transaction
+                                </div>
+                                <div style="width: 40%;">
+                                    @Html.RadioButtonFor(model => model.PromoCode, "false") Transaction
+                                </div>
+                                @Html.ValidationMessageFor(model => model.PromoCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ExamineFee, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ExamineFee, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ExamineFee, "", new { @class = "text-danger" })
+                            </div>
+                        </div><br />
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.WaitingTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.WaitingTime, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.WaitingTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div style="width: 100%;margin-bottom: 50px;margin-top:40px ;" class="row">
+                            <div style="margin-right: 30px;width: 32%;">
+                                <h3 style="font-weight: 500;margin-bottom:16px;font-size: 18px;color:rgb(88, 89, 91)">Branch name</h3>
+                                <div class="div-input  ">
+                                    <span class="input-group-text fa fa-newspaper"></span>
+                                    @Html.EditorFor(model => model.branchName, new { htmlAttributes = new { @class = "form-control", placeholder = "Branch Name" } })
+                                    @Html.ValidationMessageFor(model => model.branchName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div style="width: 55%;">
+                                <h3 style="font-weight: 500;margin-bottom:16px;font-size: 18px;color:rgb(88, 89, 91)">Location</h3>
+                                <div class="row">
+                                    <div class="div-input dropdown custom-select" style="width: 50%">
+                                        @Html.DropDownListFor(d => d.CityID, ViewBag.CityID as SelectList, "City  ", new { id = "ContID", @class = "form-control" })
+                                    </div>
+                                    <div class="div-input dropdown custom-select" style="width: 50%">
+                                        <span class="input-group-text fa fa-map-marker"></span>
+                                        <select id="st" class="form-control" name="AreaID">
+                                        </select>
+                                        <span id="option-container" style="visibility: hidden; position:absolute;"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AddressDetails, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.AddressDetails, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AddressDetails, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div style="width: 55%;">
+                            <h3 style="font-weight: 500;margin-bottom:16px;font-size: 18px;color:rgb(88, 89, 91)">Choose Your Insurance If Exists</h3>
+
+                            <div class="row">
+
+                                <div class="div-input dropdown custom-select" style="width: 75%">
+                                    @* @Html.DropDownListFor(d => d.InsuranceID, ViewBag.InsuranceID as SelectList, "  ", new { @class = "form-control" })*@
+                                    @Html.DropDownList("InsuranceID", null," ", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="center">
+                    <a>
+                        <input type="submit" value="Create Acount >" class="btn btn-primary" style="font-weight: 400; font-size: 15px;" />
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <script src="~/Content/js/intlTelInput.js"></script>
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            utilsScript: "~/Content/js/utils.js",
+        });
+    </script>
+    @Scripts.Render("~/bundles/jquery");
+    @Scripts.Render("~/bundles/jqueryval");
+</body>
+</html>
+
+
+
+
